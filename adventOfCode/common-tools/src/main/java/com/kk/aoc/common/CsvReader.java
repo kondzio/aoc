@@ -5,11 +5,10 @@ import lombok.NonNull;
 import lombok.SneakyThrows;
 
 import java.io.*;
-import java.util.Iterator;
 import java.util.function.Consumer;
 
 
-public class CsvReader implements Iterator<String[]>, Closeable {
+public class CsvReader implements InputReader<String[]> {
     @NonNull
     private final String separator;
     @NonNull
@@ -29,6 +28,7 @@ public class CsvReader implements Iterator<String[]>, Closeable {
     }
 
 
+    @Override
     public void open() throws FileNotFoundException {
         bufferedReader = new BufferedReader(new FileReader(inputFile));
         opened = true;
@@ -72,7 +72,7 @@ public class CsvReader implements Iterator<String[]>, Closeable {
     }
 
     private void requireOpen() {
-        if (opened == false) {
+        if (!opened) {
             throw new IllegalStateException("Is not opened");
         }
     }

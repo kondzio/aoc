@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Passport schema",
+  "required": [
+    "hcl",
+    "iyr",
+    "hgt",
+    "hgtUnit",
+    "pid",
+    "byr",
+    "ecl",
+    "eyr"
+  ],
+  "properties": {
+    "byr": {
+      "type": "number",
+      "minimum": 1920,
+      "maximum": 2002
+    },
+    "iyr": {
+      "type": "number",
+      "minimum": 2010,
+      "maximum": 2020
+    },
+    "eyr": {
+      "type": "number",
+      "minimum": 2020,
+      "maximum": 2030
+    },
+    "hgtUnit": {
+      "type": "string",
+      "pattern": "^cm|in$"
+    },
+    "hgtCmValue": {
+      "type": ["number","null"],
+      "minimum": 150,
+      "maximum": 193
+    },
+    "hgtInValue": {
+      "type": ["number","null"],
+      "minimum": 59,
+      "maximum": 76
+    },
+    "hcl": {
+      "type": "string",
+      "pattern": "^#[0-9a-f]{6}$"
+    },
+    "ecl": {
+      "type": "string",
+      "enum": [
+        "amb",
+        "blu",
+        "brn",
+        "gry",
+        "grn",
+        "hzl",
+        "oth"
+      ]
+    },
+    "pid": {
+      "type": "string",
+      "minLength": 9,
+      "maxLength": 9
+    }
+  }
+}
