@@ -15,6 +15,7 @@
         <module>passwords</module>
         <module>toboggan</module>
         <module>passport-processing</module>
+        <module>binary-boarding</module>
     </modules>
 
     <dependencyManagement>
