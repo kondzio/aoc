@@ -1,9 +1,8 @@
 package com.kk.aoc.passwords.main;
 
-import com.kk.aoc.common.CsvReader;
+import com.kk.aoc.common.LineByLineReader;
 import com.kk.aoc.passwords.model.Policy;
 import com.kk.aoc.passwords.model.PolicyAndPasswordEntry;
-import com.kk.aoc.passwords.validator.LiteralPolicyValidator;
 import com.kk.aoc.passwords.validator.PositionPolicyValidator;
 import com.kk.aoc.passwords.validator.Validator;
 
@@ -15,10 +14,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<PolicyAndPasswordEntry> entries = new ArrayList<>();
-        try (CsvReader csvReader = CsvReader.builder().separator("\\s").inputFile(new File("src/main/resources/day2/input.txt")).build()) {
-            csvReader.open();
-            while (csvReader.hasNext()) {
-                String[] tokens = csvReader.next();
+        try (LineByLineReader lineByLineReader = LineByLineReader.builder().separator("\\s").inputFile(new File("src/main/resources/day2/input.txt")).build()) {
+            lineByLineReader.open();
+            while (lineByLineReader.hasNext()) {
+                String[] tokens = lineByLineReader.next();
                 if (tokens != null) {
                     String[] minMax = tokens[0].split("-");
                     entries.add(PolicyAndPasswordEntry.builder().

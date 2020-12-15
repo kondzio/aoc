@@ -1,6 +1,6 @@
 package com.kk.aoc.passport.main;
 
-import com.kk.aoc.common.CsvReader;
+import com.kk.aoc.common.LineByLineReader;
 import com.kk.aoc.passport.model.MapPassport;
 import com.kk.aoc.passport.parser.JsonPassportParser;
 import com.kk.aoc.passport.validator.JsonSchemaPassportValidator;
@@ -15,7 +15,7 @@ public class Main {
 
         List<MapPassport> passports = new ArrayList<>();
         JsonPassportParser jsonPassportParser = new JsonPassportParser();
-        try (CsvReader reader = CsvReader.builder().separator("\\s").inputFile(new File("src/main/resources/day4/input.txt")).build()) {
+        try (LineByLineReader reader = LineByLineReader.builder().separator("\\s").inputFile(new File("src/main/resources/day4/input.txt")).build()) {
             reader.open();
             MapPassport passport = new MapPassport();
             while (reader.hasNext()) {

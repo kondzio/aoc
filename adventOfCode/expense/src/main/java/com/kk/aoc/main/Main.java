@@ -1,7 +1,7 @@
 package com.kk.aoc.main;
 
 import com.kk.aoc.analyzer.BackPackAnalyzer;
-import com.kk.aoc.common.CsvReader;
+import com.kk.aoc.common.LineByLineReader;
 import com.kk.aoc.model.Expense;
 import com.kk.aoc.model.ExpenseJournal;
 import com.kk.aoc.model.Transaction;
@@ -14,10 +14,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Transaction<Integer>> expenses = new ArrayList<>();
-        try (CsvReader csvReader = CsvReader.builder().separator(";").inputFile(new File("src/main/resources/day1/input.txt")).build()) {
-            csvReader.open();
-            while (csvReader.hasNext()) {
-                String[] tokens = csvReader.next();
+        try (LineByLineReader lineByLineReader = LineByLineReader.builder().separator(";").inputFile(new File("src/main/resources/day1/input.txt")).build()) {
+            lineByLineReader.open();
+            while (lineByLineReader.hasNext()) {
+                String[] tokens = lineByLineReader.next();
                 if (tokens != null) {
                     expenses.add(new Expense(Integer.parseInt(tokens[0])));
                 }

@@ -1,6 +1,6 @@
 package com.kk.aoc.toboggan.main;
 
-import com.kk.aoc.common.CsvReader;
+import com.kk.aoc.common.LineByLineReader;
 import com.kk.aoc.toboggan.model.map.*;
 import com.kk.aoc.toboggan.model.trajectory.TobogganTrajectory;
 import com.kk.aoc.toboggan.model.trajectory.Trajectory;
@@ -14,10 +14,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<String[]> inputRows = new ArrayList<>();
-        try (CsvReader csvReader = CsvReader.builder().separator("").inputFile(new File("src/main/resources/day3/input.txt")).build()) {
-            csvReader.open();
-            while (csvReader.hasNext()) {
-                String[] tokens = csvReader.next();
+        try (LineByLineReader lineByLineReader = LineByLineReader.builder().separator("").inputFile(new File("src/main/resources/day3/input.txt")).build()) {
+            lineByLineReader.open();
+            while (lineByLineReader.hasNext()) {
+                String[] tokens = lineByLineReader.next();
                 if (tokens != null) {
                     inputRows.add(Arrays.copyOf(tokens, tokens.length - 1));
                 }

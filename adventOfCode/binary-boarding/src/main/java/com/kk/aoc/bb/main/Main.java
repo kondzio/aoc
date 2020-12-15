@@ -4,7 +4,7 @@ import com.kk.aoc.bb.model.Ticket;
 import com.kk.aoc.bb.scaner.BinaryCodeTicketScanner;
 import com.kk.aoc.bb.scaner.TicketScanner;
 import com.kk.aoc.bb.scaner.TicketUtils;
-import com.kk.aoc.common.CsvReader;
+import com.kk.aoc.common.LineByLineReader;
 import lombok.Builder;
 
 import java.io.File;
@@ -15,11 +15,11 @@ public class Main {
 
         boolean[][] seatsOccupation = new boolean[128][8];
         TicketScanner ticketScanner = new BinaryCodeTicketScanner(7, 3);
-        CsvReader csvReader = CsvReader.builder().separator("\\s").inputFile(new File("src/main/resources/day5/input.txt")).build();
-        csvReader.open();
+        LineByLineReader lineByLineReader = LineByLineReader.builder().separator("\\s").inputFile(new File("src/main/resources/day5/input.txt")).build();
+        lineByLineReader.open();
         int maxId = Integer.MIN_VALUE;
-        while (csvReader.hasNext()) {
-            String[] tokens = csvReader.next();
+        while (lineByLineReader.hasNext()) {
+            String[] tokens = lineByLineReader.next();
             if (tokens != null && tokens.length > 0) {
                 String code = tokens[0];
                 if (code != null && !code.isEmpty()) {

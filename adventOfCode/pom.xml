@@ -16,6 +16,8 @@
         <module>toboggan</module>
         <module>passport-processing</module>
         <module>binary-boarding</module>
+        <module>custom-customs</module>
+        <module>handy-haversacks</module>
     </modules>
 
     <dependencyManagement>
