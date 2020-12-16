@@ -18,6 +18,7 @@
         <module>binary-boarding</module>
         <module>custom-customs</module>
         <module>handy-haversacks</module>
+        <module>handheld-halting</module>
     </modules>
 
     <dependencyManagement>

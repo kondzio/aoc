@@ -52,7 +52,7 @@ public class LineByLineReader implements InputReader<String[]> {
         if (line.isEmpty() && skipEmpty) {
             return next();
         }
-        return line.split(separator, -1);
+        return separator != null ? line.split(separator, -1) : new String[]{line};
     }
 
     @Override
