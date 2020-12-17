@@ -11,7 +11,7 @@ public class AccOperation extends AbstractOperation {
     }
 
     @Override
-    public void execute(OperationContext context) {
+    public void doExecute(OperationContext context) {
         Integer param = Integer.parseInt(getParams()[0]);
         context.add(param);
         context.incrementPosition();

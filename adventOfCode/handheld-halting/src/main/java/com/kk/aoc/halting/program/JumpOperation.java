@@ -11,7 +11,7 @@ public class JumpOperation extends AbstractOperation {
     }
 
     @Override
-    public void execute(OperationContext context) {
+    public void doExecute(OperationContext context) {
         int param = Integer.parseInt(getParams()[0]);
         context.incrementPosition(param);
     }

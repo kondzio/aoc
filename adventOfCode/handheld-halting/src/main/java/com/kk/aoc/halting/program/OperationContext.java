@@ -1,8 +1,10 @@
 package com.kk.aoc.halting.program;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class OperationContext {
 
     private int currentPosition = 0;

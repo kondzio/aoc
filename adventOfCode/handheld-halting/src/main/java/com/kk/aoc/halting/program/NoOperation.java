@@ -11,7 +11,7 @@ public class NoOperation extends AbstractOperation {
     }
 
     @Override
-    public void execute(OperationContext context) {
+    public void doExecute(OperationContext context) {
         context.incrementPosition();
     }
 }
