@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>expense</module>
+        <module>report-repair</module>
         <module>common-tools</module>
         <module>passwords</module>
         <module>toboggan</module>
@@ -19,6 +19,7 @@
         <module>custom-customs</module>
         <module>handy-haversacks</module>
         <module>handheld-halting</module>
+        <module>encoding-error</module>
     </modules>
 
     <dependencyManagement>
