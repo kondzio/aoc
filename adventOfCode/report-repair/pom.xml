@@ -10,8 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.kk.aoc</groupId>
-    <artifactId>expense</artifactId>
+    <artifactId>report-repair</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

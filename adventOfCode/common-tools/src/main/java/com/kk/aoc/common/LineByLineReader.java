@@ -5,6 +5,8 @@ import lombok.NonNull;
 import lombok.SneakyThrows;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 
@@ -44,6 +46,21 @@ public class LineByLineReader implements InputReader<String[]> {
     @Override
     public String[] next() {
         requireOpen();
+        return doNext();
+    }
+
+    public List<String[]> next(int batchSize) {
+        requireOpen();
+        List<String[]> batch = new ArrayList<>();
+        int i = 0;
+        while (hasNext() && i < batchSize) {
+            batch.add(next());
+            i++;
+        }
+        return batch;
+    }
+
+    private String[] doNext() throws IOException {
         String line = bufferedReader.readLine();
         if (line == null) {
             finished = true;
