@@ -3,7 +3,7 @@ package com.kk.aoc.halting.main;
 import com.kk.aoc.common.LineByLineReader;
 import com.kk.aoc.halting.program.Compiler;
 import com.kk.aoc.halting.program.Operation;
-import com.kk.aoc.halting.program.OperationContext;
+import com.kk.aoc.halting.program.ProgramContext;
 import com.kk.aoc.halting.program.Program;
 
 import java.io.File;
@@ -27,6 +27,6 @@ public class Main {
         Operation[] instructions = new Operation[operations.size()];
         operations.toArray(instructions);
         Program program = new Program(instructions);
-        program.execute(new OperationContext());
+        program.execute(ProgramContext.builder().build());
     }
 }
