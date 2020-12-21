@@ -1,6 +1,7 @@
 package com.kk.aoc.ee.main;
 
 import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.utils.ParseUtils;
 import com.kk.aoc.ee.main.model.PreambleWindow;
 
 import java.io.File;
@@ -18,7 +19,7 @@ public class Main {
         List<String[]> initialRecords = lineByLineReader.next(25);
 
         List<Integer> preambleAsList = initialRecords.stream().map(token -> Integer.parseInt(token[0])).collect(Collectors.toList());
-        int[] preamble = convertIntegers(preambleAsList);
+        int[] preamble = ParseUtils.convertIntegers(preambleAsList);
 
         PreambleWindow preambleWindow = PreambleWindow.initialize(preamble);
         List<Integer> numbers = new ArrayList<>(preambleAsList);
@@ -66,13 +67,5 @@ public class Main {
         } else {
             System.err.println("Not found");
         }
-    }
-
-    public static int[] convertIntegers(List<Integer> integers) {
-        int[] ret = new int[integers.size()];
-        for (int i = 0; i < ret.length; i++) {
-            ret[i] = integers.get(i);
-        }
-        return ret;
     }
 }
