@@ -20,6 +20,7 @@
         <module>handy-haversacks</module>
         <module>handheld-halting</module>
         <module>encoding-error</module>
+        <module>adapter-array</module>
     </modules>
 
     <dependencyManagement>
