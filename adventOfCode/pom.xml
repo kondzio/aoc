@@ -21,6 +21,7 @@
         <module>handheld-halting</module>
         <module>encoding-error</module>
         <module>adapter-array</module>
+        <module>seating-system</module>
     </modules>
 
     <dependencyManagement>
