@@ -1,4 +1,4 @@
-package com.kk.aoc.ee.main.model;
+package com.kk.aoc.ee.model;
 
 import lombok.Builder;
 import lombok.Getter;

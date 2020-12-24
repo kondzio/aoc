@@ -2,7 +2,7 @@ package com.kk.aoc.ee.main;
 
 import com.kk.aoc.common.LineByLineReader;
 import com.kk.aoc.common.utils.ParseUtils;
-import com.kk.aoc.ee.main.model.PreambleWindow;
+import com.kk.aoc.ee.model.PreambleWindow;
 
 import java.io.File;
 import java.io.FileNotFoundException;
