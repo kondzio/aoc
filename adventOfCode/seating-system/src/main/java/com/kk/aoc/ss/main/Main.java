@@ -4,6 +4,7 @@ import com.kk.aoc.common.LineByLineReader;
 import com.kk.aoc.common.utils.PrintUtils;
 import com.kk.aoc.ss.model.Lobby;
 import com.kk.aoc.ss.model.SeatState;
+import com.kk.aoc.ss.model.VisibleSurroundingLobby;
 import com.kk.aoc.ss.simulator.LobbyStateSimulator;
 import com.kk.aoc.ss.simulator.SimulationResult;
 import com.kk.aoc.ss.utils.SeatUtils;
@@ -27,16 +28,16 @@ public class Main {
         }
         int width = lines.get(0).length - 1;
         int height = lines.size();
-        Lobby lobby = new Lobby(width, height);
+        Lobby lobby = new VisibleSurroundingLobby(width, height);
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 lobby.put(x, y, SeatState.fromValue(lines.get(y)[x]));
             }
         }
-        LobbyStateSimulator stateSimulator = new LobbyStateSimulator();
+        LobbyStateSimulator stateSimulator = new LobbyStateSimulator(5);
         SimulationResult<Lobby> simulationResult = new SimulationResult<>(lobby, 1);
         while (simulationResult.getChangesCount() > 0) {
-            System.err.println(PrintUtils.toString(lobby.getLobbyMatrix(), height, width));
+            System.err.println(PrintUtils.toString(simulationResult.getResult().getLobbyMatrix(), height, width));
             System.err.println("_____________________________________________");
             simulationResult = stateSimulator.simulateNextRound(simulationResult.getResult());
         }

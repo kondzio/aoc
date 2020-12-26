@@ -6,11 +6,14 @@ import com.kk.aoc.ss.utils.SeatUtils;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class LobbyStateSimulator implements Simulator<Lobby> {
+    private final int occupationFactor;
+
     @Override
     public SimulationResult<Lobby> simulateNextRound(Lobby lobby) {
         int stateChangeCounter = 0;
-        Lobby newLobbyState = new Lobby(lobby.getWidth(), lobby.getLength());
+        Lobby newLobbyState = lobby.newLobby(lobby.getWidth(), lobby.getLength());
         for (int x = 0; x < lobby.getWidth(); x++) {
             for (int y = 0; y < lobby.getLength(); y++) {
                 EvaluatedState evaluatedState = evaluateState(lobby.getWithSurrounding(x, y));
@@ -28,7 +31,7 @@ public class LobbyStateSimulator implements Simulator<Lobby> {
         if (SeatState.AVAILABLE == currentSeatState && 0 == occupiedAdjacentSeatsNumber(surrounding, currentSeatState)) {
             return new EvaluatedState(SeatState.OCCUPIED, true);
         }
-        if (SeatState.OCCUPIED == currentSeatState && 4 <= occupiedAdjacentSeatsNumber(surrounding, currentSeatState)) {
+        if (SeatState.OCCUPIED == currentSeatState && occupationFactor <= occupiedAdjacentSeatsNumber(surrounding, currentSeatState)) {
             return new EvaluatedState(SeatState.AVAILABLE, true);
         }
         return new EvaluatedState(currentSeatState, false);
