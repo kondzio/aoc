@@ -22,6 +22,7 @@
         <module>encoding-error</module>
         <module>adapter-array</module>
         <module>seating-system</module>
+        <module>rain-risk</module>
     </modules>
 
     <dependencyManagement>
@@ -37,6 +38,13 @@
                 <artifactId>guava</artifactId>
                 <version>28.1-jre</version>
             </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>5.7.0</version>
+                <scope>test</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
