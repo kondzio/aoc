@@ -23,6 +23,7 @@
         <module>adapter-array</module>
         <module>seating-system</module>
         <module>rain-risk</module>
+        <module>shuttle-search</module>
     </modules>
 
     <dependencyManagement>
