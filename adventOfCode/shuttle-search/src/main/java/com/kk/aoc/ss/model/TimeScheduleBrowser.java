@@ -24,14 +24,14 @@ public class TimeScheduleBrowser {
 
     public int findDesiredConnectionDeparture(List<Connection> connections) {
         Connection max = Collections.max(connections);
-        int nexTry = max.getBusNo() - max.getDelay();
+        int nextTry = max.getBusNo() - max.getDelay();
         while (true) {
-            int finalNexTry = nexTry;
-            boolean found = connections.stream().filter(connection -> connection != max).noneMatch(connection -> 0 != ((finalNexTry + connection.getDelay()) % connection.getBusNo()));
+            int finalNextTry = nextTry;
+            boolean found = connections.stream().filter(connection -> connection != max).noneMatch(connection -> 0 != ((finalNextTry + connection.getDelay()) % connection.getBusNo()));
             if (found) {
-                return nexTry;
+                return nextTry;
             }
-            nexTry += max.getBusNo();
+            nextTry += max.getBusNo();
         }
     }
 }
