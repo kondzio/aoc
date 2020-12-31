@@ -1,6 +1,6 @@
 package com.kk.aoc.ss.main;
 
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 import com.kk.aoc.common.utils.PrintUtils;
 import com.kk.aoc.ss.model.Lobby;
 import com.kk.aoc.ss.model.SeatState;
@@ -16,12 +16,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        LineByLineReader lineByLineReader = LineByLineReader.builder().separator("").inputFile(new File("src/main/resources/day11/input.txt")).build();
-        lineByLineReader.open();
+        LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator("").inputFile(new File("src/main/resources/day11/input.txt")).build();
+        lineByLineFileReader.open();
 
         List<String[]> lines = new ArrayList<>();
-        while (lineByLineReader.hasNext()) {
-            String[] tokens = lineByLineReader.next();
+        while (lineByLineFileReader.hasNext()) {
+            String[] tokens = lineByLineFileReader.next();
             if (tokens != null) {
                 lines.add(tokens);
             }

@@ -3,7 +3,7 @@ package com.kk.aoc.aa.main;
 import com.kk.aoc.aa.main.adapter.AdapterChain;
 import com.kk.aoc.aa.main.adapter.AdapterCombinationAnalyzer;
 import com.kk.aoc.aa.main.adapter.JoltageAnalyzer;
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,11 +13,11 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        LineByLineReader lineByLineReader = LineByLineReader.builder().separator("\\s").inputFile(new File("src/main/resources/day10/input.txt")).build();
-        lineByLineReader.open();
+        LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator("\\s").inputFile(new File("src/main/resources/day10/input.txt")).build();
+        lineByLineFileReader.open();
         List<Integer> jolts = new ArrayList<>();
-        while (lineByLineReader.hasNext()) {
-            String[] tokens = lineByLineReader.next();
+        while (lineByLineFileReader.hasNext()) {
+            String[] tokens = lineByLineFileReader.next();
             if (tokens != null) {
                 jolts.add(Integer.parseInt(tokens[0]));
             }

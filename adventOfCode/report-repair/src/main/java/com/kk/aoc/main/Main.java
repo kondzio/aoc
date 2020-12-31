@@ -1,7 +1,7 @@
 package com.kk.aoc.main;
 
 import com.kk.aoc.analyzer.ReportAnalyzer;
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 import com.kk.aoc.model.Expense;
 import com.kk.aoc.model.ExpenseJournal;
 import com.kk.aoc.model.Position;
@@ -14,10 +14,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Position<Integer>> expenses = new ArrayList<>();
-        try (LineByLineReader lineByLineReader = LineByLineReader.builder().separator(";").inputFile(new File("src/main/resources/day1/input.txt")).build()) {
-            lineByLineReader.open();
-            while (lineByLineReader.hasNext()) {
-                String[] tokens = lineByLineReader.next();
+        try (LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator(";").inputFile(new File("src/main/resources/day1/input.txt")).build()) {
+            lineByLineFileReader.open();
+            while (lineByLineFileReader.hasNext()) {
+                String[] tokens = lineByLineFileReader.next();
                 if (tokens != null) {
                     expenses.add(new Expense(Integer.parseInt(tokens[0])));
                 }

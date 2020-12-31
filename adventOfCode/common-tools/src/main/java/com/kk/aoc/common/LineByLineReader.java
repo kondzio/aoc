@@ -4,37 +4,36 @@ import lombok.Builder;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-
-public class LineByLineReader implements InputReader<String[]> {
+public abstract class LineByLineReader implements InputReader<String[]> {
     @NonNull
     private final String separator;
-    @NonNull
-    private final File inputFile;
+
     @Builder.Default
     private boolean skipEmpty = true;
-    private BufferedReader bufferedReader;
+    protected BufferedReader bufferedReader;
 
     private boolean finished;
     private boolean opened;
 
-    @Builder
-    public LineByLineReader(@NonNull String separator, @NonNull File inputFile, boolean skipEmpty) {
+    public LineByLineReader(@NonNull String separator, boolean skipEmpty) {
         this.separator = separator;
-        this.inputFile = inputFile;
         this.skipEmpty = skipEmpty;
     }
 
-
     @Override
     public void open() throws FileNotFoundException {
-        bufferedReader = new BufferedReader(new FileReader(inputFile));
         opened = true;
+        doOpen();
     }
+
+    public abstract void doOpen() throws FileNotFoundException;
 
     @Override
     public boolean hasNext() {

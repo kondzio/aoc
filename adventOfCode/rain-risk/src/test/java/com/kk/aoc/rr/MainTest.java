@@ -1,7 +1,7 @@
 package com.kk.aoc.rr;
 
 
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 import com.kk.aoc.rr.model.*;
 import com.kk.aoc.rr.model.action.Action;
 import com.kk.aoc.rr.model.action.ActionRegistry;
@@ -18,11 +18,11 @@ import java.util.List;
 public class MainTest {
 
     private List<Instruction> initialize(String path) throws FileNotFoundException {
-        LineByLineReader lineByLineReader = LineByLineReader.builder().separator("\\s").inputFile(new File(path)).build();
-        lineByLineReader.open();
+        LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator("\\s").inputFile(new File(path)).build();
+        lineByLineFileReader.open();
         List<Instruction> instructions = new ArrayList<>();
-        while (lineByLineReader.hasNext()) {
-            String[] tokens = lineByLineReader.next();
+        while (lineByLineFileReader.hasNext()) {
+            String[] tokens = lineByLineFileReader.next();
             if (tokens != null) {
                 String actionId = tokens[0].substring(0, 1);
                 int arg = Integer.parseInt(tokens[0].substring(1));

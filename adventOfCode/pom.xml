@@ -24,6 +24,7 @@
         <module>seating-system</module>
         <module>rain-risk</module>
         <module>shuttle-search</module>
+        <module>docking-data</module>
     </modules>
 
     <dependencyManagement>

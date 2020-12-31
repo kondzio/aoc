@@ -1,6 +1,6 @@
 package com.kk.aoc.hh.main;
 
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 import com.kk.aoc.hh.model.BagContainer;
 import com.kk.aoc.hh.register.BagRegister;
 
@@ -10,12 +10,12 @@ import java.util.regex.Matcher;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        LineByLineReader lineByLineReader = LineByLineReader.builder().separator(" contain |, ").inputFile(new File("src/main/resources/day7/input.txt")).build();
-        lineByLineReader.open();
+        LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator(" contain |, ").inputFile(new File("src/main/resources/day7/input.txt")).build();
+        lineByLineFileReader.open();
 
         BagRegister bagRegister = new BagRegister();
-        while (lineByLineReader.hasNext()) {
-            String[] tokens = lineByLineReader.next();
+        while (lineByLineFileReader.hasNext()) {
+            String[] tokens = lineByLineFileReader.next();
             if (!isBlank(tokens)) {
                 BagContainer bagContainer = bagRegister.getOrRegister(tokens[0]);
                 if (tokens.length > 1) {

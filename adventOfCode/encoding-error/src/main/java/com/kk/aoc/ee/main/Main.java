@@ -1,6 +1,6 @@
 package com.kk.aoc.ee.main;
 
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 import com.kk.aoc.common.utils.ParseUtils;
 import com.kk.aoc.ee.model.PreambleWindow;
 
@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        LineByLineReader lineByLineReader = LineByLineReader.builder().separator("\\s").inputFile(new File("src/main/resources/day9/input.txt")).build();
-        lineByLineReader.open();
-        List<String[]> initialRecords = lineByLineReader.next(25);
+        LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator("\\s").inputFile(new File("src/main/resources/day9/input.txt")).build();
+        lineByLineFileReader.open();
+        List<String[]> initialRecords = lineByLineFileReader.next(25);
 
         List<Integer> preambleAsList = initialRecords.stream().map(token -> Integer.parseInt(token[0])).collect(Collectors.toList());
         int[] preamble = ParseUtils.convertIntegers(preambleAsList);
@@ -24,8 +24,8 @@ public class Main {
         PreambleWindow preambleWindow = PreambleWindow.initialize(preamble);
         List<Integer> numbers = new ArrayList<>(preambleAsList);
         int incorrectValue = Integer.MIN_VALUE;
-        while (lineByLineReader.hasNext()) {
-            String[] tokens = lineByLineReader.next();
+        while (lineByLineFileReader.hasNext()) {
+            String[] tokens = lineByLineFileReader.next();
             if (tokens != null) {
                 int value = Integer.parseInt(tokens[0]);
                 numbers.add(value);

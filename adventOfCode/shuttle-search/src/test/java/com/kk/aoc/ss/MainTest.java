@@ -1,6 +1,6 @@
 package com.kk.aoc.ss;
 
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 import com.kk.aoc.ss.model.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -14,11 +14,11 @@ import java.util.List;
 
 public class MainTest {
     private Input initialize(String path) throws FileNotFoundException {
-        LineByLineReader lineByLineReader = LineByLineReader.builder().separator("\\,").inputFile(new File(path)).build();
-        lineByLineReader.open();
-        int arrival = Integer.parseInt(lineByLineReader.next(1).get(0)[0]);
+        LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator("\\,").inputFile(new File(path)).build();
+        lineByLineFileReader.open();
+        int arrival = Integer.parseInt(lineByLineFileReader.next(1).get(0)[0]);
 
-        List<String[]> inputSchedules = lineByLineReader.next(1);
+        List<String[]> inputSchedules = lineByLineFileReader.next(1);
         List<TimeSchedule> busSchedules = new ArrayList<>();
         List<Connection> connections = new ArrayList<>();
         int delay = 0;

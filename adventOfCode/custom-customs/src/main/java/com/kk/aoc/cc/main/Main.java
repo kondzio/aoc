@@ -1,7 +1,7 @@
 package com.kk.aoc.cc.main;
 
 import com.kk.aoc.cc.model.RowCustomStatistics;
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,14 +11,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        LineByLineReader lineByLineReader = LineByLineReader.builder().separator("\\s").inputFile(new File("src/main/resources/day6/input.txt")).build();
-        lineByLineReader.open();
+        LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator("\\s").inputFile(new File("src/main/resources/day6/input.txt")).build();
+        lineByLineFileReader.open();
 
         List<RowCustomStatistics> allStatistics = new ArrayList<>();
         RowCustomStatistics stats = new RowCustomStatistics(0);
         int rowSequence = 1;
-        while (lineByLineReader.hasNext()) {
-            String[] tokens = lineByLineReader.next();
+        while (lineByLineFileReader.hasNext()) {
+            String[] tokens = lineByLineFileReader.next();
             if (isBlank(tokens)) {
                 allStatistics.add(stats);
                 stats = new RowCustomStatistics(rowSequence++);

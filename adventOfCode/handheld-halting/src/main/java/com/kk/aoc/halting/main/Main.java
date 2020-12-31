@@ -1,6 +1,6 @@
 package com.kk.aoc.halting.main;
 
-import com.kk.aoc.common.LineByLineReader;
+import com.kk.aoc.common.LineByLineFileReader;
 import com.kk.aoc.halting.program.Compiler;
 import com.kk.aoc.halting.program.Operation;
 import com.kk.aoc.halting.program.ProgramContext;
@@ -13,12 +13,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        LineByLineReader lineByLineReader = LineByLineReader.builder().separator("\\s").inputFile(new File("src/main/resources/day8/input.txt")).build();
-        lineByLineReader.open();
+        LineByLineFileReader lineByLineFileReader = LineByLineFileReader.builder().separator("\\s").inputFile(new File("src/main/resources/day8/input.txt")).build();
+        lineByLineFileReader.open();
         List<Operation> operations = new ArrayList<>();
         Compiler compiler = new Compiler();
-        while (lineByLineReader.hasNext()) {
-            String[] code = lineByLineReader.next();
+        while (lineByLineFileReader.hasNext()) {
+            String[] code = lineByLineFileReader.next();
             if (code != null) {
                 operations.add(compiler.compile(code));
             }
