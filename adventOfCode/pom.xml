@@ -25,6 +25,7 @@
         <module>rain-risk</module>
         <module>shuttle-search</module>
         <module>docking-data</module>
+        <module>rambunctious-recitation</module>
     </modules>
 
     <dependencyManagement>
