@@ -26,6 +26,7 @@
         <module>shuttle-search</module>
         <module>docking-data</module>
         <module>rambunctious-recitation</module>
+        <module>ticket-translation</module>
     </modules>
 
     <dependencyManagement>

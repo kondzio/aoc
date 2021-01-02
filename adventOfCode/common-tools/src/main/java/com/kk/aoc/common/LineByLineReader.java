@@ -33,7 +33,7 @@ public abstract class LineByLineReader implements InputReader<String[]> {
         doOpen();
     }
 
-    public abstract void doOpen() throws FileNotFoundException;
+    protected abstract void doOpen() throws FileNotFoundException;
 
     @Override
     public boolean hasNext() {
