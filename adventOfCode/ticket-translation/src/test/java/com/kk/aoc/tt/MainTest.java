@@ -1,6 +1,7 @@
 package com.kk.aoc.tt;
 
 import com.google.common.base.Preconditions;
+import com.kk.aoc.common.LineByLineFileReader;
 import com.kk.aoc.common.LineByLineReader;
 import com.kk.aoc.common.LineByLineStringReader;
 import com.kk.aoc.tt.ticket.Ticket;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +41,16 @@ public class MainTest {
         Input input = initialize(LineByLineStringReader.builder().inputString(inputText).separator("\\n").build());
 
         int index = ValidationUtils.calculateValidationIndex(input.getValidators(), input.getNearbyTickets());
-        Assertions.assertEquals(72, index);
+        Assertions.assertEquals(71, index);
+    }
+
+    @Test
+    public void part1Test() throws FileNotFoundException {
+
+        Input input = initialize(LineByLineFileReader.builder().inputFile(new File("D:\\poligon\\aoc\\adventOfCode\\src\\main\\resources\\day16\\input.txt")).separator("\\n").build());
+
+        int index = ValidationUtils.calculateValidationIndex(input.getValidators(), input.getNearbyTickets());
+        Assertions.assertEquals(22073, index);
     }
 
     private Input initialize(LineByLineReader lineByLineReader) throws FileNotFoundException {

@@ -17,7 +17,9 @@ public class ValidationUtils {
         Integer index = 0;
         for (Ticket ticket : tickets) {
             ValidationResult<Integer> result = ticketValidator.validate(ticket);
-            index += result.getIncorrectValue();
+            if(!result.isSuccess()) {
+                index += result.getIncorrectValue();
+            }
         }
         return index;
     }

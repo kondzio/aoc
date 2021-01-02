@@ -19,11 +19,11 @@ public class TicketValidator implements Validator<ValidationResult<Integer>, Tic
             boolean valid = false;
             for (Validator<Boolean, Integer> validator : validators.values()) {
                 valid |= validator.validate(value);
-                if (!valid) {
-                    return ValidationResult.<Integer>builder().result(false).incorrectValue(value).build();
-                }
+            }
+            if (!valid) {
+                return ValidationResult.<Integer>builder().success(false).incorrectValue(value).build();
             }
         }
-        return ValidationResult.<Integer>builder().result(true).build();
+        return ValidationResult.<Integer>builder().success(true).build();
     }
 }

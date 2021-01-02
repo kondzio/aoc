@@ -10,6 +10,6 @@ import lombok.ToString;
 @ToString
 @Builder
 public class ValidationResult<T> {
-    private final boolean result;
+    private final boolean success;
     private final T incorrectValue;
 }
