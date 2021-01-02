@@ -10,5 +10,5 @@ import java.util.List;
 @Getter
 @ToString
 public class Ticket {
-    private final List<Integer> values;
+    private final List<Field<Integer>> fields;
 }
