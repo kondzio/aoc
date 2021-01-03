@@ -27,6 +27,7 @@
         <module>docking-data</module>
         <module>rambunctious-recitation</module>
         <module>ticket-translation</module>
+        <module>conway-cubes</module>
     </modules>
 
     <dependencyManagement>
